@@ -14,12 +14,11 @@ using WcfBase.UserControls;
 namespace WcfBase
 {
     [ServiceContract(Namespace = "")]
-    [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
+    [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
     public class MainService
     {
         
         [WebGet(ResponseFormat=WebMessageFormat.Xml)]
-        [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
         [OperationContract]
         public Stream FetchHtml(string controlName, Dictionary<string, object> args)
         {

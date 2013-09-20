@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,6 +40,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -57,8 +61,24 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CSS\jquery.handsontable.full.css" />
     <Content Include="CSS\main.css" />
     <Content Include="CSS\normalize.min.css" />
+    <Content Include="CSS\ui-bootstrap\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="CSS\ui-bootstrap\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="CSS\ui-bootstrap\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="CSS\ui-bootstrap\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="CSS\ui-bootstrap\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="CSS\ui-bootstrap\images\ui-bg_glass_75_ffffff_1x400.png" />
+    <Content Include="CSS\ui-bootstrap\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="CSS\ui-bootstrap\images\ui-bg_inset-soft_95_fef1ec_1x100.png" />
+    <Content Include="CSS\ui-bootstrap\images\ui-icons_222222_256x240.png" />
+    <Content Include="CSS\ui-bootstrap\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="CSS\ui-bootstrap\images\ui-icons_454545_256x240.png" />
+    <Content Include="CSS\ui-bootstrap\images\ui-icons_888888_256x240.png" />
+    <Content Include="CSS\ui-bootstrap\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="CSS\ui-bootstrap\images\ui-icons_f6cf3b_256x240.png" />
+    <Content Include="CSS\ui-bootstrap\jquery-ui.custom.css" />
     <Content Include="CSS\ui-lightness\images\animated-overlay.gif" />
     <Content Include="CSS\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
     <Content Include="CSS\ui-lightness\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
@@ -76,12 +96,15 @@
     <Content Include="CSS\ui-lightness\images\ui-icons_ffffff_256x240.png" />
     <Content Include="CSS\ui-lightness\jquery-ui-1.10.3.custom.min.css" />
     <Content Include="Index.aspx" />
+    <Content Include="MainService.svc" />
     <Content Include="Scripts\jquery.boilerplate.js" />
+    <Content Include="Scripts\vendor\jquery.handsontable.full.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\vendor\html5shiv.js" />
     <Content Include="Scripts\vendor\jquery-1.10.2.min.js" />
     <Content Include="Scripts\vendor\jquery-ui-1.10.3.custom.min.js" />
     <Content Include="Scripts\vendor\jquery.blockUI.js" />
+    <Content Include="UserControls\DataGrid.ascx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -92,17 +115,30 @@
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Main.Master.cs">
-      <DependentUpon>Main.Master</DependentUpon>
+    <Compile Include="MainMaster.Master.cs">
+      <DependentUpon>MainMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Main.Master.designer.cs">
-      <DependentUpon>Main.Master</DependentUpon>
+    <Compile Include="MainMaster.Master.designer.cs">
+      <DependentUpon>MainMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MainService.svc.cs">
+      <DependentUpon>MainService.svc</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\BaseUserControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\DataGrid.ascx.cs">
+      <DependentUpon>DataGrid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\DataGrid.ascx.designer.cs">
+      <DependentUpon>DataGrid.ascx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Main.Master" />
+    <Content Include="MainMaster.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

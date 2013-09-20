@@ -1,11 +1,12 @@
 ; (function ($) {
     // declare var in global scope
-    window.MYNAMESPACE = {};
+    window.WCFBASE = {};
 
-    MYNAMESPACE.SUBNAME = {
-        myFunction: function () {
-            console.log('running MYNAMESPACE.SUBNAME.myFunction...');
-        }
+    WCFBASE.DIALOGS = {
+        dialogOptions: {},
+        modalOptions: {},
+        notificationOptions: {}
+        
     }
 
 })(jQuery);
