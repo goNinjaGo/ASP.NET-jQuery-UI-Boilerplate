@@ -7,18 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WcfBase.UserControls {
+namespace WcfBase {
     
     
-    public partial class DataGrid {
+    public partial class Index {
         
         /// <summary>
-        /// dataGrid control.
+        /// DataGrid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dataGrid;
+        protected global::WcfBase.UserControls.DataGrid DataGrid;
     }
 }

@@ -65,14 +65,14 @@ namespace WcfBase.UserControls
                 SetProperties[MethodBase.GetCurrentMethod().Name] = value.ToString();
             }
         }
-        public double MaxRows
+        public double MaxRows 
         {
             set
             {
                 SetProperties[MethodBase.GetCurrentMethod().Name] = GetMaxOptionValue(value);
             }
         }
-        public double MaxCols
+        public double MaxCols 
         {
             set
             {
@@ -275,7 +275,7 @@ namespace WcfBase.UserControls
                 SetProperties[MethodBase.GetCurrentMethod().Name] = GetBooleanOptionValue(value);
             }
         }
-        public bool ColumnSorting
+        public bool ColumnSorting 
         {
             set
             {
@@ -284,13 +284,14 @@ namespace WcfBase.UserControls
         }
         #endregion
 
+
         private string GetSerializedDataValue(IEnumerable<object> data)
         {
             var jsonSerializer = new JavaScriptSerializer();
             jsonSerializer.MaxJsonLength = int.MaxValue;
             return jsonSerializer.Serialize(data);
         }
-
+        
         private string GetStringOptionValue(string val)
         {
             return "'" + val + "'";

@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Web
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfBase", "WcfBase\WcfBase.csproj", "{2DDFD0A0-6948-46EB-8D17-20215B7D755E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2DDFD0A0-6948-46EB-8D17-20215B7D755E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DDFD0A0-6948-46EB-8D17-20215B7D755E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DDFD0A0-6948-46EB-8D17-20215B7D755E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DDFD0A0-6948-46EB-8D17-20215B7D755E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

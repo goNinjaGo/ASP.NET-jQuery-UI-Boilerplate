@@ -9,5 +9,6 @@
         
     }
 
+
 })(jQuery);
-MYNAMESPACE.SUBNAME.myFunction(); //function call
+//MYNAMESPACE.SUBNAME.myFunction(); //function call
