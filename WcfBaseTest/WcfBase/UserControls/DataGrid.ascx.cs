@@ -9,18 +9,70 @@ using System.Web.Script.Serialization;
 
 namespace WcfBase.UserControls
 {
-    
-    public partial class DataGrid : BaseUserControl
+
+    public interface IDataGridOption
     {
         
-        private Dictionary<string, string> SetProperties = new Dictionary<string, string>();
+    }
 
+    public class DataGridOption : IDataGridOption
+    {
+        public string pluginName = "";
+        public string tagName = "";
+        
+        public Dictionary<string, string> SetProperties = new Dictionary<string, string>();
+                
+        protected string GetSerializedValue(object datObj)
+        {
+            var jsonSerializer = new JavaScriptSerializer();
+            jsonSerializer.MaxJsonLength = int.MaxValue;
+            var dataString = jsonSerializer.Serialize(datObj);
+            return dataString;
+        }
+
+        protected string GetStringOptionValue(string val)
+        {
+            return "'" + val + "'";
+        }
+
+        protected string GetMaxOptionValue(double val)
+        {
+            if (val == double.PositiveInfinity)
+                return "Infinity";
+            else if (val == double.NegativeInfinity)
+                return "-Infinity";
+            else
+                return Math.Ceiling(val).ToString();
+        }
+
+        protected string GetBooleanOptionValue(bool val)
+        {
+            return val.ToString().ToLower();
+        }
+
+        protected string GetNumberArrayOptionValue(int[] valArray)
+        {
+            string retVal = "[";
+            valArray.ToList().ForEach(num => retVal += num + ",");
+            return retVal.Remove(retVal.LastIndexOf(",")) + "]";
+        }
+
+        public string GetOptionName(string setName)
+        {
+            string name = setName.Replace("set_", "");
+            name = name.Substring(0, 1).ToLower() + name.Substring(1);
+            return name;
+        }
+    }
+
+    public class HandsoneDataGridOption : DataGridOption
+    {
         #region Properties
         public IEnumerable<object> Data
         {
             set
             {
-                SetProperties[MethodBase.GetCurrentMethod().Name] = GetSerializedDataValue(value);
+                SetProperties[MethodBase.GetCurrentMethod().Name] = GetSerializedValue(value);
             }
         }
         public int Width
@@ -65,14 +117,14 @@ namespace WcfBase.UserControls
                 SetProperties[MethodBase.GetCurrentMethod().Name] = value.ToString();
             }
         }
-        public double MaxRows 
+        public double MaxRows
         {
             set
             {
                 SetProperties[MethodBase.GetCurrentMethod().Name] = GetMaxOptionValue(value);
             }
         }
-        public double MaxCols 
+        public double MaxCols
         {
             set
             {
@@ -275,7 +327,7 @@ namespace WcfBase.UserControls
                 SetProperties[MethodBase.GetCurrentMethod().Name] = GetBooleanOptionValue(value);
             }
         }
-        public bool ColumnSorting 
+        public bool ColumnSorting
         {
             set
             {
@@ -284,59 +336,192 @@ namespace WcfBase.UserControls
         }
         #endregion
 
-
-        private string GetSerializedDataValue(IEnumerable<object> data)
+        public HandsoneDataGridOption()
         {
-            var jsonSerializer = new JavaScriptSerializer();
-            jsonSerializer.MaxJsonLength = int.MaxValue;
-            return jsonSerializer.Serialize(data);
+            pluginName = "handsontable";
+            tagName = "div";
         }
         
-        private string GetStringOptionValue(string val)
+    }
+
+    public class DataTableNetDataGridOption : DataGridOption
+    {
+
+        #region Properties
+
+        public bool Destroy
         {
-            return "'" + val + "'";
+            set
+            {
+                SetProperties[MethodBase.GetCurrentMethod().Name] = GetBooleanOptionValue(value);
+            }
+        }
+        public bool Retrieve
+        {
+            set
+            {
+                SetProperties[MethodBase.GetCurrentMethod().Name] = GetBooleanOptionValue(value);
+            }
+        } 
+        public bool ScrollAutoCss
+        {
+            set
+            {
+                SetProperties[MethodBase.GetCurrentMethod().Name] = GetBooleanOptionValue(value);
+            }
+        } 
+        public bool ScrollCollapse
+        {
+            set
+            {
+                SetProperties[MethodBase.GetCurrentMethod().Name] = GetBooleanOptionValue(value);
+            }
+        }
+        public bool SortCellsTop
+        {
+            set
+            {
+                SetProperties[MethodBase.GetCurrentMethod().Name] = GetBooleanOptionValue(value);
+            }
+        }
+        public int CookieDuration
+        {
+            set
+            {
+                SetProperties[MethodBase.GetCurrentMethod().Name] = value.ToString();
+            }
+        } 
+        public int DeferLoading
+        {
+            set
+            {
+                SetProperties[MethodBase.GetCurrentMethod().Name] = value.ToString();
+            }
+        } 
+        public int DisplayLength
+        {
+            set
+            {
+                SetProperties[MethodBase.GetCurrentMethod().Name] = value.ToString();
+            }
+        } 
+        public int DisplayStart
+        {
+            set
+            {
+                SetProperties[MethodBase.GetCurrentMethod().Name] = value.ToString();
+            }
+        } 
+        public int ScrollLoadGap
+        {
+            set
+            {
+                SetProperties[MethodBase.GetCurrentMethod().Name] = value.ToString();
+            }
+        }
+        public int TabIndex
+        {
+            set
+            {
+                SetProperties[MethodBase.GetCurrentMethod().Name] = value.ToString();
+            }
+        }
+        public Dictionary<string, string> Search
+        {
+            set
+            {
+                SetProperties[MethodBase.GetCurrentMethod().Name] = value.ToString();
+            }
+        }
+        public string AjaxDataProp
+        {
+            set
+            {
+                SetProperties[MethodBase.GetCurrentMethod().Name] = GetStringOptionValue(value);
+            }
+        }
+        public string AjaxSource
+        {
+            set
+            {
+                SetProperties[MethodBase.GetCurrentMethod().Name] = GetStringOptionValue(value);
+            }
+        }
+        public string CookiePrefix
+        {
+            set
+            {
+                SetProperties[MethodBase.GetCurrentMethod().Name] = GetStringOptionValue(value);
+            }
+        }
+        public string Dom
+        {
+            set
+            {
+                SetProperties[MethodBase.GetCurrentMethod().Name] = GetStringOptionValue(value);
+            }
+        }
+        public string PaginationType
+        {
+            set
+            {
+                SetProperties[MethodBase.GetCurrentMethod().Name] = GetStringOptionValue(value);
+            }
+        }
+        public string ScrollXInner
+        {
+            set
+            {
+                SetProperties[MethodBase.GetCurrentMethod().Name] = GetStringOptionValue(value);
+            }
+        }
+        public string ServerMethod
+        {
+            set
+            {
+                SetProperties[MethodBase.GetCurrentMethod().Name] = GetStringOptionValue(value);
+            }
         }
 
-        private string GetMaxOptionValue(double val)
+        #endregion
+
+        public DataTableNetDataGridOption()
         {
-            if(val == double.PositiveInfinity)
-                return "Infinity";
-            else if(val == double.NegativeInfinity)
-                return "-Infinity";
-            else
-                return Math.Ceiling(val).ToString();
+            pluginName = "dataTable";
+            tagName = "table";
         }
 
-        private string GetBooleanOptionValue(bool val)
-        {
-            return val.ToString().ToLower();
-        }
+    }
+    
+    public partial class DataGrid : BaseUserControl
+    {
 
-        private string GetNumberArrayOptionValue(int[] valArray)
-        {
-            string retVal = "[";
-            valArray.ToList().ForEach(num => retVal += num + ",");
-            return retVal.Remove(retVal.LastIndexOf(",")) + "]";
-        }
+        public IDataGridOption dataGridOptions;
+
+        
+
+        
        
         protected void Page_PreRender(object sender, EventArgs e) 
         {
-            string datascriptString = "<script>$(function(){$('#" + dataGrid.ClientID + "').handsontable({";
-
-            foreach (string key in SetProperties.Keys)
+            if (dataGridOptions != null)
             {
-                datascriptString += GetOptionName(key) + " : " + SetProperties[key] + ", ";                
+                var options = (DataGridOption)dataGridOptions;
+
+                dataGrid.TagName = options.
+
+                string datascriptString = "<script>$(function(){$('#" + dataGrid.ClientID + "')." + options.pluginName + "({";
+                
+                foreach (string key in options.SetProperties.Keys)
+                {
+                    datascriptString += options.GetOptionName(key) + " : " + options.SetProperties[key] + ", ";
+                }
+                datascriptString = datascriptString.Remove(datascriptString.LastIndexOf(",")) + "});});</script>";
+
+                this.Controls.Add(new LiteralControl(datascriptString));
             }
-            datascriptString =  datascriptString.Remove(datascriptString.LastIndexOf(",")) + "});});</script>";
-
-            this.Controls.Add(new LiteralControl(datascriptString));
         }
 
-        private string GetOptionName(string setName)
-        {
-            string name = setName.Replace("set_", "");
-            name = name.Substring(0, 1).ToLower() + name.Substring(1);
-            return name;
-        }
+        
     }
 }

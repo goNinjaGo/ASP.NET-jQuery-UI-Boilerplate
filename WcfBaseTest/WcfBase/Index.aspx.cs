@@ -11,17 +11,26 @@ namespace WcfBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            UserControls.HandsoneDataGridOption options = new UserControls.HandsoneDataGridOption();
+
             using (var db = new PersonEntities())
             {
                 db.Configuration.ProxyCreationEnabled = false;
-                DataGrid.Data =  db.People.Select(p => p);
+                options.Data = db.People.Select(p => p);
             }
             
-            
-            
-            DataGrid.Width = 500;
-            DataGrid.EnterMoves = new int[] { 1, 2, 3 };
-            DataGrid.MultiSelect = false;
+            options.Width = 800;
+            options.EnterMoves = new int[] { 1, 2, 3 };
+            options.MultiSelect = false;
+            options.ColHeaders = true;
+            options.ColumnSorting = true;
+            options.Height = 600;
+
+            DataGrid.dataGridOptions = options;
+
+            UserControls.DataTableNetDataGridOption netOptions = new UserControls.DataTableNetDataGridOption();
+
+            netOptions.
         }
     }
 }

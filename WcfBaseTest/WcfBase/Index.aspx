@@ -5,15 +5,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script>
         $(function () {
-            openNotification("Oh Hi!", "NOTIFICATION!");
-            createNewModal($('#modalForm').clone().show());
+            //openNotification("Oh Hi!", "NOTIFICATION!");
+            //createNewModal($('#modalForm').clone().show());
         });
 
     </script>
 
     <div>Hello World!</div>
 
-    <uc1:DataGrid runat="server" ID="DataGrid" ColHeaders="true" ColumnSorting="true" Height="200" />
+    <uc1:DataGrid runat="server" ID="DataGrid" />
+
+    <uc1:DataGrid runat="server" ID="DataGrid2" />
 
     <div id="modalForm" style="display:none;">
         <input type="text" id="txt1" /><br />

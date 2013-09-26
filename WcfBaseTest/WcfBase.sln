@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2012 for Web
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfBase", "WcfBase\WcfBase.csproj", "{2DDFD0A0-6948-46EB-8D17-20215B7D755E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfBaseTest", "WcfBase\WcfBaseTest.csproj", "{2DDFD0A0-6948-46EB-8D17-20215B7D755E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
