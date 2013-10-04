@@ -18,11 +18,41 @@ namespace WcfBase
     public class MainService
     {
         
-        [WebGet(ResponseFormat=WebMessageFormat.Xml)]
+        [DataContract]
+        public class DataTableModel<T>
+        {
+            public string sEcho { get; set; }
+            public int iTotalRecords { get; set; }
+            public int iTotalDisplayRecords { get; set; }
+            public List<T> aaData { get; set; }
+        }
+
+        [WebInvoke(Method = "POST", 
+            ResponseFormat = WebMessageFormat.Json,
+            RequestFormat = WebMessageFormat.Json, 
+            BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+        [OperationContract]
+        public DataTableModel<Person> GetData(Dictionary<string, object> args)
+        {
+            using (var db = new PersonEntities())
+            {
+                db.Configuration.ProxyCreationEnabled = false;
+                var x = db.People.Select(p => p).ToList();
+                return new DataTableModel<Person>()
+                {
+                    aaData = x,
+                    iTotalRecords = x.Count,
+                    iTotalDisplayRecords = x.Count,
+                    sEcho = 1.ToString() //Convert.ToInt32(args["sEcho"]).ToString()
+                };
+            }
+        }
+
+        [WebGet(ResponseFormat = WebMessageFormat.Xml)]
         [OperationContract]
         public Stream FetchHtml(string controlName, Dictionary<string, object> args)
         {
-            var html = GetControlHtml(controlName, args);  
+            var html = GetControlHtml(controlName, args);
 
             // we want our result interpreted as plain html
             WebOperationContext.Current.OutgoingResponse.ContentType = "text/html";
@@ -46,7 +76,7 @@ namespace WcfBase
 
             BaseUserControl myControl = (BaseUserControl)tempPage.Controls[0];
             myControl.args = args;
-            
+
             StringWriter sw = new StringWriter();
 
             HttpContext.Current.Server.Execute(tempPage, sw, false);
@@ -56,5 +86,5 @@ namespace WcfBase
 
     }
 
-    
+
 }

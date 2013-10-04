@@ -104,6 +104,7 @@
     <Content Include="Index.aspx" />
     <Content Include="MainService.svc" />
     <Content Include="Scripts\jquery.boilerplate.js" />
+    <Content Include="Scripts\vendor\jquery.dataTables.js" />
     <Content Include="Scripts\vendor\jquery.dataTables.min.js" />
     <Content Include="Scripts\vendor\jquery.handsontable.full.js" />
     <Content Include="Scripts\main.js" />

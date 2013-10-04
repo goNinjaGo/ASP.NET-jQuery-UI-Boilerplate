@@ -16,22 +16,24 @@ namespace WcfBase
 
             DataTableNetDataGridOption netOptions = new DataTableNetDataGridOption();
 
-            using (var db = new PersonEntities())
-            {
-                db.Configuration.ProxyCreationEnabled = false;
-                var x = db.People.Select(p => p);
-                options.Data = x;
-                netOptions.Data = x;
-            }
+            //using (var db = new PersonEntities())
+            //{
+            //    db.Configuration.ProxyCreationEnabled = false;
+            //    var x = db.People.Select(p => p);
+            //    options.Data = x;
+            //    netOptions.Data = x;
+            //}
             
-            options.Width = 800;
-            options.EnterMoves = new int[] { 1, 2, 3 };
-            options.MultiSelect = false;
-            options.ColHeaders = true;
-            options.ColumnSorting = true;
-            options.Height = 600;
+            //options.Width = 800;
+            //options.EnterMoves = new int[] { 1, 2, 3 };
+            //options.MultiSelect = false;
+            //options.ColHeaders = true;
+            //options.ColumnSorting = true;
+            //options.Height = 600;
 
             netOptions.Processing = true;
+            netOptions.AjaxSource = "'MainService.svc/GetData'";
+            netOptions.ServerMethod = "'POST'";
             var wee = new List<IDataGridOption>();
             wee.Add(new DataTableNetDataGridOption.ColumnOptions() { Data = "Title", Title = "Title" });
             wee.Add(new DataTableNetDataGridOption.ColumnOptions() { Data = "FirstName", Title = "First Name" });
@@ -39,9 +41,9 @@ namespace WcfBase
             wee.Add(new DataTableNetDataGridOption.ColumnOptions() { Data = "AdditionalContactInfo", Title = "Contact Info" });
             //wee.Add(new DataTableNetDataGridOption.ColumnOptions() { Data = "ModifiedDate", Render = "function(data,type,full){\nreturn JSON.parse(data);\n}" });
             netOptions.Columns = wee;
-            netOptions.FooterCallback = "function( nFoot, aData, iStart, iEnd, aiDisplay ) { alert('lol'); }";
+            //netOptions.FooterCallback = "function( nFoot, aData, iStart, iEnd, aiDisplay ) { alert('lol'); }";
 
-            DataGrid.dataGridOptions = options;
+            //DataGrid.dataGridOptions = options;
             DataGrid2.dataGridOptions = netOptions;
 
         }
