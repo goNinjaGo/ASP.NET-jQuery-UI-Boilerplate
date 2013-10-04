@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MainMaster.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="WcfBase.Index" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MainMaster.Master" AutoEventWireup="True" CodeBehind="Index.aspx.cs" Inherits="WcfBase.Index" %>
 
 <%@ Register Src="~/UserControls/DataGrid.ascx" TagPrefix="uc1" TagName="DataGrid" %>
 
@@ -13,7 +13,7 @@
 
     <div>Hello World!</div>
 
-    <uc1:DataGrid runat="server" ID="DataGrid" />
+    <uc1:DataGrid runat="server" ID="DataGrid" Visible="false" />
 
     <uc1:DataGrid runat="server" ID="DataGrid2" />
 

@@ -66,6 +66,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CSS\jquery.dataTables.css" />
     <Content Include="CSS\jquery.handsontable.full.css" />
     <Content Include="CSS\main.css" />
     <Content Include="CSS\normalize.min.css" />
@@ -103,12 +104,14 @@
     <Content Include="Index.aspx" />
     <Content Include="MainService.svc" />
     <Content Include="Scripts\jquery.boilerplate.js" />
+    <Content Include="Scripts\vendor\jquery.dataTables.min.js" />
     <Content Include="Scripts\vendor\jquery.handsontable.full.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\vendor\html5shiv.js" />
     <Content Include="Scripts\vendor\jquery-1.10.2.min.js" />
     <Content Include="Scripts\vendor\jquery-ui-1.10.3.custom.min.js" />
     <Content Include="Scripts\vendor\jquery.blockUI.js" />
+    <Content Include="TEst1.aspx" />
     <Content Include="UserControls\DataGrid.ascx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -184,6 +187,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StateProvince.cs">
       <DependentUpon>PersonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEst1.aspx.cs">
+      <DependentUpon>TEst1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TEst1.aspx.designer.cs">
+      <DependentUpon>TEst1.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\BaseUserControl.cs">
       <SubType>ASPXCodeBehind</SubType>

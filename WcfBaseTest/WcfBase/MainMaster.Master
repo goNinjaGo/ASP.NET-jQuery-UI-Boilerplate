@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="CSS/normalize.min.css">
         <link rel="stylesheet" href="CSS/main.css">
         <link href="CSS/ui-bootstrap/jquery-ui.custom.css" rel="stylesheet" />        
-        <link rel="stylesheet" media="screen" href="CSS/jquery.handsontable.full.css">
+        <link rel="stylesheet" media="screen" href="CSS/jquery.dataTables.css">
 
         <!--[if lt IE 9]>
             <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -32,7 +32,7 @@
         <script>window.jQuery || document.write('<script src="Scripts/vendor/jquery-1.10.2.min.js"><\/script>')</script>
 
         <script src="Scripts/vendor/jquery-ui-1.10.3.custom.min.js"></script>
-        <script src="Scripts/vendor/jquery.handsontable.full.js"></script>
+        <script src="Scripts/vendor/jquery.dataTables.min.js"></script>
         <script src="Scripts/vendor/jquery.blockUI.js"></script>
         <script src="Scripts/main.js"></script>
         
