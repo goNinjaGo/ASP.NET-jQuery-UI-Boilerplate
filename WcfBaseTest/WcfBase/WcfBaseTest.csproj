@@ -47,6 +47,7 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activation" />
     <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -101,6 +102,7 @@
     <Content Include="CSS\ui-lightness\images\ui-icons_ffd27a_256x240.png" />
     <Content Include="CSS\ui-lightness\images\ui-icons_ffffff_256x240.png" />
     <Content Include="CSS\ui-lightness\jquery-ui-1.10.3.custom.min.css" />
+    <Content Include="Global.asax" />
     <Content Include="Index.aspx" />
     <Content Include="MainService.svc" />
     <Content Include="Scripts\jquery.boilerplate.js" />
@@ -140,6 +142,9 @@
     </Compile>
     <Compile Include="EmailAddress.cs">
       <DependentUpon>PersonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>

@@ -9,7 +9,7 @@ namespace WcfBase.UserControls
 {
     public partial class BaseUserControl : System.Web.UI.UserControl
     {
-        public Dictionary<string, object> args = new Dictionary<string, object>();
+        public Dictionary<string, string> args = new Dictionary<string, string>();
 
         protected void Page_Int(object sender, EventArgs e)
         {

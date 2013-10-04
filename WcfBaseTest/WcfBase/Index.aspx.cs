@@ -32,14 +32,16 @@ namespace WcfBase
             //options.Height = 600;
 
             netOptions.Processing = true;
-            netOptions.AjaxSource = "'MainService.svc/GetData'";
-            netOptions.ServerMethod = "'POST'";
+            netOptions.AjaxSource = "MainService.svc/GetData";
+            //netOptions.ServerMethod = "POST";
+            netOptions.SortClasses = false;
+            netOptions.ServerSide = true;
             var wee = new List<IDataGridOption>();
-            wee.Add(new DataTableNetDataGridOption.ColumnOptions() { Data = "Title", Title = "Title" });
-            wee.Add(new DataTableNetDataGridOption.ColumnOptions() { Data = "FirstName", Title = "First Name" });
-            wee.Add(new DataTableNetDataGridOption.ColumnOptions() { Data = "LastName", Title = "Last Name" });
-            wee.Add(new DataTableNetDataGridOption.ColumnOptions() { Data = "AdditionalContactInfo", Title = "Contact Info" });
-            //wee.Add(new DataTableNetDataGridOption.ColumnOptions() { Data = "ModifiedDate", Render = "function(data,type,full){\nreturn JSON.parse(data);\n}" });
+            wee.Add(new DataTableNetDataGridOption.ColumnOptions() { Data = "'Title'", Title = "Title" });
+            wee.Add(new DataTableNetDataGridOption.ColumnOptions() { Data = "'FirstName'", Title = "First Name" });
+            wee.Add(new DataTableNetDataGridOption.ColumnOptions() { Data = "'LastName'", Title = "Last Name" });
+            wee.Add(new DataTableNetDataGridOption.ColumnOptions() { Data = "'AdditionalContactInfo'", Title = "Contact Info" });
+            wee.Add(new DataTableNetDataGridOption.ColumnOptions() { Data = "'ModifiedDate'", Title = "Modified", Render = "function(data,type,full){return new Date(parseInt(data.substr(6))).toLocaleDateString();}" });
             netOptions.Columns = wee;
             //netOptions.FooterCallback = "function( nFoot, aData, iStart, iEnd, aiDisplay ) { alert('lol'); }";
 

@@ -29,9 +29,7 @@ namespace WcfBase.UserControls
 
         protected string GetStringOptionValue(string val)
         {
-            //return "'" + val + "'";
-            //return GetSerializedValue(val);
-            return val;
+            return "'" + val + "'";
         }
 
         protected string GetMaxOptionValue(double val)
@@ -516,7 +514,13 @@ namespace WcfBase.UserControls
 
             public override string GetScript(string clientId)
             {
-                return GetSerializedValue(SetProperties);
+                string arrayString = "{";
+
+                foreach (string key in SetProperties.Keys)
+                {
+                    arrayString += GetOptionName(key) + " : " + SetProperties[key] + ", ";
+                }
+                return arrayString.Remove(arrayString.LastIndexOf(",")) + "}";
             }
         }
 
