@@ -13,21 +13,12 @@ namespace WcfBase {
     public partial class Index {
         
         /// <summary>
-        /// DataGrid control.
+        /// dataGridControl1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::WcfBase.UserControls.DataGrid DataGrid;
-        
-        /// <summary>
-        /// DataGrid2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::WcfBase.UserControls.DataGrid DataGrid2;
+        protected global::WcfBase.Controls.DataGridControl dataGridControl1;
     }
 }
